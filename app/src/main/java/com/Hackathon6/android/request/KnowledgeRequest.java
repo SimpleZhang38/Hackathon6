@@ -12,36 +12,36 @@ import com.zhy.http.okhttp.callback.StringCallback;
  */
 public class KnowledgeRequest {
 
-    public void requestAsk(String askId, final ResultCallBack callBack) {
-
-        String apiStr = "https://epc-content-hackathon6.us-west-2.test.expedia.com/service/v1/know/ask/" + askId + "/";
-
-        OkHttpUtils
-                .get()
-                .url(apiStr)
-                .build()
-                .execute(new StringCallback() {
-                    @Override
-                    public void onError(Request request, Exception e) {
-
-                    }
-
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            ResultBean resultBean = new Gson().fromJson(response.toString(), ResultBean.class);
-                            if (resultBean.isSuccessful()) {
-                                if (callBack != null) {
-                                    callBack.successBack(resultBean.getValue());
-                                }
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                        }
-                    }
-                });
-
-    }
+//    public void requestAsk(String askId, final ResultCallBack callBack) {
+//
+//        String apiStr = "https://epc-content-hackathon6.us-west-2.test.expedia.com/service/v1/know/ask/" + askId + "/";
+//
+//        OkHttpUtils
+//                .get()
+//                .url(apiStr)
+//                .build()
+//                .execute(new StringCallback() {
+//                    @Override
+//                    public void onError(Request request, Exception e) {
+//
+//                    }
+//
+//                    @Override
+//                    public void onResponse(String response) {
+//                        try {
+//                            ResultBean resultBean = new Gson().fromJson(response.toString(), ResultBean.class);
+//                            if (resultBean.isSuccessful()) {
+//                                if (callBack != null) {
+//                                    callBack.successBack(resultBean.getValue());
+//                                }
+//                            }
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                });
+//
+//    }
 
 
     public void requestMayWhat(String keywords, final RequestCallBack requestCallBack) {
@@ -57,7 +57,7 @@ public class KnowledgeRequest {
                 .execute(new StringCallback() {
                     @Override
                     public void onError(Request request, Exception e) {
-
+                        e.printStackTrace();
                     }
 
                     @Override

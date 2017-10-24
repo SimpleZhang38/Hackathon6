@@ -38,6 +38,8 @@ public class ChatMessage {
 
     private String contentType;
 
+    private boolean isQuestion;
+
     public enum Type {
         INPUT, OUTPUT, IMAGE
     }
@@ -129,5 +131,14 @@ public class ChatMessage {
 
     public void setContentType(String contentType) {
         this.contentType = contentType;
+    }
+
+
+    public boolean isQuestion() {
+        return isQuestion;
+    }
+
+    public void setQuestion(boolean question) {
+        isQuestion = question;
     }
 }

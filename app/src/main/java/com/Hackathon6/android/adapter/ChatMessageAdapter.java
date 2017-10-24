@@ -1,6 +1,7 @@
 package com.Hackathon6.android.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -10,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.Hackathon6.android.ImageLargeActivity;
 import com.Hackathon6.android.R;
 import com.Hackathon6.android.adapter.ImageAdapter;
 import com.Hackathon6.android.bean.ChatMessage;
@@ -63,7 +65,7 @@ public class ChatMessageAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        ChatMessage chatMessage = mDatas.get(position);
+        final ChatMessage chatMessage = mDatas.get(position);
 
         ViewHolder viewHolder = null;
 
@@ -102,7 +104,6 @@ public class ChatMessageAdapter extends BaseAdapter {
                 viewHolder.recyclerview_image.setOverScrollMode(View.OVER_SCROLL_NEVER);
                 viewHolder.recyclerview_image.setAdapter(new ImageAdapter(mContext,chatMessage.getImageUrlList()));
 
-
                 convertView.setTag(viewHolder);
             }
 
@@ -113,6 +114,11 @@ public class ChatMessageAdapter extends BaseAdapter {
         if (chatMessage.getType() != ChatMessage.Type.IMAGE) {
             viewHolder.content.setText(Html.fromHtml(chatMessage.getMsg()));
             viewHolder.createDate.setText(chatMessage.getDateStr());
+            if (chatMessage.isQuestion()){
+                viewHolder.content.setTextColor(mContext.getResources().getColor(R.color.blue_drak));
+            }else{
+                viewHolder.content.setTextColor(mContext.getResources().getColor(R.color.black));
+            }
         }
 
 
@@ -123,6 +129,7 @@ public class ChatMessageAdapter extends BaseAdapter {
                 viewHolder.chat_from_icon.setVisibility(View.VISIBLE);
             }
         }
+
 
         return convertView;
     }

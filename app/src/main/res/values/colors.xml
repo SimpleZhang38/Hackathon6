@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="charcoal_500">#5f5f5f</color>
+    <color name="charcoal_700">#474747</color>
+    <color name="charcoal">@color/charcoal_500</color>
+    <color name="charcoal_dark">@color/charcoal_700</color>
+    <color name="yellow">#ffcb00</color>
+    <color name="secondary_grey">#cdcdcd</color>
+    <color name="light_gray">#e8e8e8</color>
+    <color name="translucent_black_54">#8a000000</color>
+    <color name="translucent_black_87">#df000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="progressbar_color">#0087f5</color>
+
+
+    <color name="navigation_background_activated">@color/light_gray</color>
+    <color name="navigation_text_normal">@color/translucent_black_87</color>
+    <color name="navigation_text_selected">@android:color/black</color>
+    <color name="navigation_icon_normal">@color/translucent_black_54</color>
+    <color name="navigation_icon_selected">@android:color/black</color>
+
+    <!-- Photo upload list -->
+    <color name="photo_upload_list_dividing_line_color">#c7c7c7</color>
+    <color name="photo_upload_cancel_dialog_bg">#66000000</color>
+    <color name="photo_upload_speed_text_color">#B60610</color>
+    <color name="blue_drak">#ff0099cc</color>
+
+
+
+</resources>

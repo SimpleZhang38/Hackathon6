@@ -16,7 +16,6 @@ import android.widget.Toast;
 import com.Hackathon6.android.adapter.ChatMessageAdapter;
 import com.Hackathon6.android.bean.ChatMessage;
 import com.Hackathon6.android.bean.MayWhatBean;
-import com.Hackathon6.android.bean.ResultBean;
 import com.Hackathon6.android.request.KnowledgeRequest;
 
 import java.util.ArrayList;
@@ -67,10 +66,10 @@ public class MainActivity extends Activity {
                         ChatMessage message = new ChatMessage();
 
 
-                        String[] imageArray= chatMessage.getAnswer().split(",");
+                        String[] imageArray = chatMessage.getAnswer().split(",");
 
                         List<String> imageUrlList = new ArrayList<>();
-                        for (String image: imageArray) {
+                        for (String image : imageArray) {
                             imageUrlList.add(image);
                         }
 //                        imageUrlList.add("http://img2.cache.netease.com/auto/2016/7/28/201607282215432cd8a.jpg");
@@ -98,6 +97,8 @@ public class MainActivity extends Activity {
         mChatView = findViewById(R.id.id_chat_listView);
         mMsg = findViewById(R.id.id_chat_msg);
 
+//        String keyWords = getIntent().getStringExtra("keyWords");
+
         new KnowledgeRequest().requestMayWhat("", new KnowledgeRequest.RequestCallBack() {
             @Override
             public void successBack(Object object) {
@@ -112,6 +113,7 @@ public class MainActivity extends Activity {
                     } else {
                         message.setHideHead(true);
                     }
+                    message.setQuestion(true);
                     message.setAnswer(valueBean.getAnswer());
                     message.setContentType(valueBean.getType());
                     message.setAskId(valueBean.getId() + "");
@@ -168,6 +170,7 @@ public class MainActivity extends Activity {
                     } else {
                         message.setHideHead(true);
                     }
+                    message.setQuestion(true);
                     message.setAnswer(valueBean.getAnswer());
                     message.setContentType(valueBean.getType());
                     message.setAskId(valueBean.getId() + "");
@@ -190,4 +193,7 @@ public class MainActivity extends Activity {
     }
 
 
+    public void backView(View view) {
+        finish();
+    }
 }
